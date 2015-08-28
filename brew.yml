@@ -1,0 +1,94 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  sudo: no
+  vars:
+    homebrew_taps:
+      - sanemat/font
+
+    homebrew_packages:
+      - { name: openssl }
+      - { name: openssl, state: linked, install_options: force }
+      - { name: python }
+      - { name: ansible }
+      - { name: git }
+      - { name: macvim }
+      - { name: heroku-toolbelt }
+      - { name: nvm }
+      - { name: rbenv }
+      - { name: ruby-build }
+
+    homebrew_cask_packages:
+      - { name: iterm2 }
+      - { name: firefox }
+      - { name: google-chrome }
+      - { name: adobe-reader }
+      - { name: java }
+      - { name: skype }
+      - { name: intellij-idea }
+      - { name: vagrant }
+      - { name: virtualbox }
+
+  tasks:
+    # brew tap
+    # http://docs.ansible.com/ansible/homebrew_tap_module.html
+    - name: append homebrew repositories
+      homebrew_tap: tap={{ item }} state=present
+      with_items: homebrew_taps
+      when: homebrew_taps
+
+    # brew
+    # http://docs.ansible.com/ansible/homebrew_module.html
+    - name: update homebrew
+      homebrew: update_homebrew=yes
+
+    - name: install package for brew
+      homebrew: >
+        name={{ item.name }}
+        state={{ item.state | default('latest') }}
+        install_options={{
+          item.install_options | default() | join(',')
+          if item.install_options is not string
+          else item.install_options
+        }}
+      with_items: homebrew_packages
+      when: homebrew_packages
+
+    # brew cask
+    # http://docs.ansible.com/ansible/homebrew_cask_module.html
+    - name: install homebrew cask
+      homebrew: name=brew-cask state=latest
+    - name: install package for homebrew-cask
+      homebrew_cask: name={{ item.name }} state={{ item.state|default('installed') }}
+      with_items: homebrew_cask_packages
+      when: homebrew_cask_packages
+
+    # Ricty
+    - name: install xquartz (for Ricty)
+      homebrew_cask: name=xquartz
+    - name: install fontforge (for Ricty)
+      homebrew: name=fontforge
+    - name: install Ricty
+      homebrew: name=ricty
+    - name: move font directory
+      shell: cp -f $(brew --cellar ricty)/*/share/fonts/Ricty*.ttf ~/Library/Fonts/
+      args:
+        creates: ~/Library/Fonts/Ricty-Bold.ttf
+      notify: run fc-cache
+
+    # vim
+    - name: mkdir vim-neobundle
+      file: path=~/.vim/bundle state=directory
+      notify: install neobundle
+    - name: init vimrc
+      command: git clone git://github.com/yakisuzu/vimrc.git ~/vimrc
+      notify: mklink vimrc
+
+  handlers:
+    - name: run fc-cache
+      shell: fc-cache -vf
+    - name: install neobundle
+      command: git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+    - name: mklink vimrc
+      command: sh ~/vimrc/init_linux.sh
+
