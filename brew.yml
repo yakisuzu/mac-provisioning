@@ -4,23 +4,34 @@
   sudo: no
   vars:
     homebrew_taps:
+      - caskroom/cask
+      - splhack/splhack # https://github.com/splhack/macvim-kaoriya/releases
       - sanemat/font
 
     homebrew_packages:
       - { name: openssl }
       - { name: openssl, state: linked, install_options: force }
-      - { name: python }
+      - { name: python } # 2.x
+      - { name: python3 }
       - { name: ansible }
       - { name: git }
-      - { name: macvim }
+      - { name: hub }
       - { name: heroku-toolbelt }
       - { name: nvm }
       - { name: rbenv }
       - { name: ruby-build }
+      # vim options
+      #- { name: cscope }
+      #- { name: lua }
+      # splhack
+      #- { name: cmigemo-mk, state=haed }
+      #- { name: ctags-objc-ja, state=head }
+      #- { name: gettext-mk } # error
+      #- { name: macvim-kaoriya }
 
     homebrew_cask_packages:
       - { name: iterm2 }
-      - { name: firefox }
+      #- { name: firefox }
       - { name: google-chrome }
       - { name: adobe-reader }
       - { name: java }
@@ -30,6 +41,8 @@
       - { name: virtualbox }
 
   tasks:
+    # http://docs.ansible.com/ansible/list_of_all_modules.html
+
     # brew tap
     # http://docs.ansible.com/ansible/homebrew_tap_module.html
     - name: append homebrew repositories
@@ -76,19 +89,21 @@
         creates: ~/Library/Fonts/Ricty-Bold.ttf
       notify: run fc-cache
 
+    # ssh
+    - name: mkdir ssh
+      file: path=~/.ssh state=directory
+    - name: run command after mkdir
+      debug: msg="cd ~/.ssh && ssh-keygen -t rsa -C yakisuzu@gmail.com"
+
     # vim
-    - name: mkdir vim-neobundle
-      file: path=~/.vim/bundle state=directory
-      notify: install neobundle
+    - name: init neobundle
+      git: repo=https://github.com/Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
     - name: init vimrc
-      command: git clone git://github.com/yakisuzu/vimrc.git ~/vimrc
+      git: repo=https://github.com/yakisuzu/vimrc.git dest=~/vimrc
       notify: mklink vimrc
 
   handlers:
     - name: run fc-cache
       shell: fc-cache -vf
-    - name: install neobundle
-      command: git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
     - name: mklink vimrc
-      command: sh ~/vimrc/init_linux.sh
-
+      shell: sh ~/vimrc/init_linux.sh

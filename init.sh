@@ -21,8 +21,10 @@ function init_brew() {
 }
 
 function init_repos() {
-  #git init
-  #git remote add origin git@github.com:yakisuzu/mac-provisioning.git
+  git init
+  git remote add origin git@github.com:yakisuzu/mac-provisioning.git
+  git fetch origin
+  git reset origin/master
 }
 
 #init_xcode
