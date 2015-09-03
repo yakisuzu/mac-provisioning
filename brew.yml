@@ -15,6 +15,7 @@
       - { name: python3 }
       - { name: ansible }
       - { name: git }
+      - { name: tig }
       - { name: hub }
       - { name: heroku-toolbelt }
       - { name: nvm }
