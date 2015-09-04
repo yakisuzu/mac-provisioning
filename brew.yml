@@ -91,17 +91,11 @@
         creates: ~/Library/Fonts/Ricty-Bold.ttf
       notify: run fc-cache
 
-    # ssh
-    - name: mkdir ssh
-      file: path=~/.ssh state=directory
-    - name: run command after mkdir
-      debug: msg="cd ~/.ssh && ssh-keygen -t rsa -C yakisuzu@gmail.com"
-
     # vim
     - name: init neobundle
-      git: repo=https://github.com/Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
+      git: repo=git://github.com/Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
     - name: init vimrc
-      git: repo=https://github.com/yakisuzu/vimrc.git dest=~/vimrc
+      git: repo=git://github.com/yakisuzu/vimrc.git dest=~/vimrc
       notify: mklink vimrc
 
   handlers:

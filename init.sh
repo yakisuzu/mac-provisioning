@@ -8,19 +8,34 @@ function init_xcode() {
 
 # check install
 function init_brew() {
-  brew
-  if [ $? -eq 127 ]; then
+  brew doctor
+  if [ $? -ne 1 ]; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew doctor
   fi
+}
 
+function init_ansible() {
   brew upgrade
   brew update
   brew install ansible
-  brew install git
 }
 
-function init_repos() {
+function init_git() {
+  brew install git
+
+  ssh_dir=~/.ssh
+  if [ ! -d $ssh_dir ]; then
+    mkdir $ssh_dir
+    pushd $ssh_dir
+    ssh-keygen -t rsa -C yakisuzu@gmail.com
+    pbcopy < id_rsa.pub
+    pop
+  fi
+
+  open https://help.github.com/articles/generating-ssh-keys/
+}
+
+function init_ansible_repos() {
   git init
   git remote add origin git@github.com:yakisuzu/mac-provisioning.git
   git fetch origin
@@ -29,6 +44,9 @@ function init_repos() {
 
 #init_xcode
 #init_brew
+init_ansible
+init_git
+init_ansible_repos
 
 #sh ./run_ansible.sh
 
