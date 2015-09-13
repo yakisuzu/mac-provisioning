@@ -93,13 +93,13 @@
 
     # vim
     - name: init neobundle
-      git: repo=git://github.com/Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
+      git: repo=git@github.com:Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
     - name: init vimrc
-      git: repo=git://github.com/yakisuzu/vimrc.git dest=~/vimrc
+      git: repo=git@github.com:yakisuzu/dotfiles.git dest=~/dotfiles
       notify: mklink vimrc
 
   handlers:
     - name: run fc-cache
       shell: fc-cache -vf
     - name: mklink vimrc
-      shell: sh ~/vimrc/init_linux.sh
+      shell: ~/dotfiles/install.sh
