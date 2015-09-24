@@ -21,6 +21,7 @@
       - { name: nvm }
       - { name: rbenv }
       - { name: ruby-build }
+      - { name: mysql }
       # vim options
       #- { name: cscope }
       #- { name: lua }
@@ -39,8 +40,13 @@
       - { name: java }
       - { name: skype }
       - { name: intellij-idea }
+      - { name: eclipse-jee }
       - { name: vagrant }
       - { name: virtualbox }
+      - { name: chefdk }
+      - { name: libreoffice }
+      - { name: alfred }
+      - { name: evernote }
 
   tasks:
     # http://docs.ansible.com/ansible/list_of_all_modules.html

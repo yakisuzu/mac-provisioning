@@ -1,4 +1,5 @@
 #!/bin/sh
+pushd `dirname $0` >/dev/null
 
 # install xcode
 function init_xcode() {
@@ -42,11 +43,14 @@ function init_ansible_repos() {
   git reset origin/master
 }
 
+echo Uncomment necessary processing
 #init_xcode
 #init_brew
-init_ansible
-init_git
-init_ansible_repos
+#init_ansible
+#init_git
+#init_ansible_repos
 
 #sh ./run_ansible.sh
 
+popd >/dev/null
+read -p "enter"
