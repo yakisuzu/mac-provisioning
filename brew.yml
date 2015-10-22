@@ -11,6 +11,7 @@
     homebrew_packages:
       - { name: openssl }
       - { name: openssl, state: linked, install_options: force }
+      - { name: p7zip }
       - { name: python } # 2.x
       - { name: python3 }
       - { name: ansible }
