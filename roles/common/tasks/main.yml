@@ -1,0 +1,10 @@
+---
+- debug: msg={{ ansible_os_family }}
+
+- include_vars: "{{ ansible_os_family }}.yml"
+
+- include: Darwin.yml
+  when: ansible_os_family == 'Darwin'
+
+- include: Debian.yml
+  when: ansible_os_family == 'Debian'

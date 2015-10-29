@@ -1,0 +1,9 @@
+---
+# handlers
+
+# for darwin
+- name: run fc-cache
+  shell: fc-cache -vf
+
+- name: mklink vimrc
+  shell: ~/dotfiles/install.sh

@@ -1,0 +1,48 @@
+---
+# vars
+homebrew_taps:
+  - caskroom/cask
+  - splhack/splhack # https://github.com/splhack/macvim-kaoriya/releases
+  - sanemat/font
+
+homebrew_packages:
+  - { name: openssl }
+  - { name: openssl, state: linked, install_options: force }
+  - { name: p7zip }
+  - { name: python } # 2.x
+  - { name: python3 }
+  - { name: ansible }
+  - { name: git }
+  - { name: tig }
+  - { name: hub }
+  - { name: heroku-toolbelt }
+  - { name: nvm }
+  - { name: rbenv }
+  - { name: ruby-build }
+  - { name: mysql }
+  # vim options
+  #- { name: cscope }
+  #- { name: lua }
+  # splhack
+  #- { name: cmigemo-mk, state=haed }
+  #- { name: ctags-objc-ja, state=head }
+  #- { name: gettext-mk } # error
+  #- { name: macvim-kaoriya }
+
+homebrew_cask_packages:
+  - { name: iterm2 }
+  - { name: appcleaner }
+  #- { name: firefox }
+  - { name: google-chrome }
+  - { name: adobe-reader }
+  - { name: java }
+  - { name: skype }
+  - { name: intellij-idea }
+  - { name: eclipse-jee }
+  - { name: vagrant }
+  - { name: virtualbox }
+  - { name: chefdk }
+  - { name: libreoffice }
+  - { name: alfred }
+  - { name: evernote }
+
