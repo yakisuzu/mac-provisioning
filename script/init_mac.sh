@@ -22,16 +22,6 @@ function init_ansible() {
 
 function init_git() {
   brew install git
-
-  ssh_dir=~/.ssh
-  if [ ! -d $ssh_dir ]; then
-    mkdir $ssh_dir
-    pushd $ssh_dir
-    ssh-keygen -t rsa -C yakisuzu@gmail.com
-    pbcopy < id_rsa.pub
-    pop
-  fi
-
   open https://help.github.com/articles/generating-ssh-keys/
 }
 

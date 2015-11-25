@@ -1,2 +1,5 @@
 ---
-
+# vars
+apt_packages:
+  - { name: git }
+  - { name: node }
