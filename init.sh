@@ -1,7 +1,7 @@
 #!/bin/bash
 pushd `dirname $0` >/dev/null
 
-function init_git() {
+function init_ssh() {
   ssh_dir=~/.ssh
   if [ ! -d $ssh_dir ]; then
     mkdir $ssh_dir
@@ -12,7 +12,7 @@ function init_git() {
     pop
   fi
 }
-init_git && unset init_git
+init_ssh && unset init_ssh
 
 check_uname=`uname -s |awk "{print $1}"`
 if [ $check_uname == 'Darwin' ]; then

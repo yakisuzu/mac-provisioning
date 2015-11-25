@@ -25,18 +25,10 @@ function init_git() {
   open https://help.github.com/articles/generating-ssh-keys/
 }
 
-function init_ansible_repos() {
-  git init
-  git remote add origin git@github.com:yakisuzu/mac-provisioning.git
-  git fetch origin
-  git reset origin/master
-}
-
 echo Uncomment necessary processing
 #init_xcode
 #init_brew
 #init_ansible
 #init_git
-#init_ansible_repos
 
 #./run_ansible.sh

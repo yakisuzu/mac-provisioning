@@ -7,12 +7,8 @@
 - include: Debian.yml
   when: ansible_os_family == 'Debian'
 
-- stat: path={{ ansible_env.PWD }}/.git
-  register: resgit
-- shell: |
-    cd {{ ansible_env.PWD }};
-    git init;
-    git remote add origin git@github.com:yakisuzu/provisioning-ansible.git;
-    git fetch origin;
-    git reset origin/master;
-  when: not resgit.stat.exists
+#- git: repo=git@github.com:yakisuzu/provisioning-ansible.git dest={{ ansible_env.PWD }} update=no
+
+#- shell: |
+#    cd {{ ansible_env.PWD }};
+#    ./script/init_git.sh;
