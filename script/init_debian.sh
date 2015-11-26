@@ -1,6 +1,6 @@
 #!/bin/bash
 
 function init_ansible() {
-  aptitude install ansible
+  sudo aptitude install ansible
 }
 init_ansible && unset init_ansible
