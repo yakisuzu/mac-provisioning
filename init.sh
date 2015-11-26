@@ -1,24 +1,14 @@
 #!/bin/bash
 pushd `dirname $0` >/dev/null
 
-function init_ssh() {
-  ssh_dir=~/.ssh
-  if [ ! -d $ssh_dir ]; then
-    mkdir $ssh_dir
-    pushd $ssh_dir
-    echo -----------------
-    echo create ssh-keygen
-    ssh-keygen -t rsa -C yakisuzu@gmail.com
-    pop
-  fi
-}
-init_ssh && unset init_ssh
+# load ssh
+./script/init_ssh.sh
 
 check_uname=`uname -s |awk "{print $1}"`
 if [ $check_uname == 'Darwin' ]; then
   ./script/init_mac.sh
 elif [ $check_uname == 'Linux' ]; then
-  ./script/init_linux.sh
+  ./script/init_debian.sh
 else
   echo `uname -s` is not supported
 fi

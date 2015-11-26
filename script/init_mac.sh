@@ -26,9 +26,9 @@ function init_git() {
 }
 
 echo Uncomment necessary processing
-#init_xcode
-#init_brew
-#init_ansible
-#init_git
+#init_xcode && unset init_xcode
+#init_brew && unset init_brew
+#init_ansible && unset init_ansible
+#init_git && unset init_git
 
 #./run_ansible.sh
