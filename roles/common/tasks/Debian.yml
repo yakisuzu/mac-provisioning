@@ -1,6 +1,7 @@
 ---
 - name: apt update
   apt: update_cache=yes
+  sudo: yes
 
 - name: install package for apt
   apt: >

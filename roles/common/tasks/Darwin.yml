@@ -47,11 +47,3 @@
   args:
     creates: ~/Library/Fonts/Ricty-Bold.ttf
   notify: run fc-cache
-
-# vim
-- name: init neobundle
-  git: repo=git@github.com:Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
-- name: init vimrc
-  git: repo=git@github.com:yakisuzu/dotfiles.git dest=~/dotfiles
-  notify: mklink vimrc
-

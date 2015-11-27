@@ -1,0 +1,16 @@
+---
+# vim
+- name: init neobundle
+  git: repo=git@github.com:Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
+- name: init vimrc
+  git: repo=git@github.com:yakisuzu/dotfiles.git dest=~/dotfiles
+  notify: mklink vimrc
+
+#- git: repo=git@github.com:yakisuzu/provisioning-ansible.git dest={{ ansible_env.PWD }} update=no
+
+#- shell: |
+#  cd {{ ansible_env.PWD }}
+#  git init;
+#  git remote add origin git@github.com:yakisuzu/mac-provisioning.git;
+#  git fetch origin;
+#  git reset origin/master;
