@@ -6,11 +6,14 @@
   git: repo=git@github.com:yakisuzu/dotfiles.git dest=~/dotfiles
   notify: mklink vimrc
 
-#- git: repo=git@github.com:yakisuzu/provisioning-ansible.git dest={{ ansible_env.PWD }} update=no
-
-#- shell: |
-#  cd {{ ansible_env.PWD }}
-#  git init;
-#  git remote add origin git@github.com:yakisuzu/mac-provisioning.git;
-#  git fetch origin;
-#  git reset origin/master;
+# current repos
+- name: check current git repos
+  stat: path={{ ansible_env.PWD }}/.git
+  register: resgit
+- shell: |
+    cd {{ ansible_env.PWD }}
+    git init
+    git remote add origin git@github.com:yakisuzu/provisioning-ansible.git
+    git fetch origin
+    git reset origin/master
+  when: not resgit.stat.exists
