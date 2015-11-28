@@ -2,7 +2,7 @@
 # vars
 homebrew_taps:
   - caskroom/cask
-  - splhack/splhack # https://github.com/splhack/macvim-kaoriya/releases
+  #- splhack/splhack # https://github.com/splhack/macvim-kaoriya/releases
   - sanemat/font
 
 homebrew_packages:
@@ -14,7 +14,6 @@ homebrew_packages:
   - { name: ansible }
   - { name: git }
   - { name: tig }
-  - { name: hub }
   - { name: heroku-toolbelt }
   - { name: nvm }
   - { name: rbenv }
@@ -28,6 +27,8 @@ homebrew_packages:
   #- { name: ctags-objc-ja, state=head }
   #- { name: gettext-mk } # error
   #- { name: macvim-kaoriya }
+  # Ricty
+  - { name: fontforge }
 
 homebrew_cask_packages:
   - { name: iterm2 }
@@ -45,4 +46,6 @@ homebrew_cask_packages:
   - { name: libreoffice }
   - { name: alfred }
   - { name: evernote }
+  # Ricty
+  - { name: xquartz }
 

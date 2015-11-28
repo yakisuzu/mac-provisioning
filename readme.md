@@ -13,8 +13,11 @@ install brew
 install ansible  
 install git  
 
-## for linux
+## for debian
 install ansible  
+
+# Working by hand!!!!
+Register the key to github  
 
 # run
 `./run_ansible.sh`  

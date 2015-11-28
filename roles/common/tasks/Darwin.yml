@@ -36,14 +36,13 @@
   when: homebrew_cask_packages
 
 # Ricty
-- name: install xquartz (for Ricty)
-  homebrew_cask: name=xquartz
-- name: install fontforge (for Ricty)
-  homebrew: name=fontforge
-- name: install Ricty
+- name: install Ricty (require fontforge, xquartz)
   homebrew: name=ricty
 - name: move font directory
   shell: cp -f $(brew --cellar ricty)/*/share/fonts/Ricty*.ttf ~/Library/Fonts/
   args:
     creates: ~/Library/Fonts/Ricty-Bold.ttf
   notify: run fc-cache
+
+# nvm
+- name: init nvm dir
