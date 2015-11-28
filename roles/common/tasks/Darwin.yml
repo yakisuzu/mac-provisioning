@@ -46,3 +46,5 @@
 
 # nvm
 - name: init nvm dir
+  file: path=~/.nvm state=directory
+
