@@ -11,13 +11,12 @@ initialize ssh-keygen
 initialize xcode  
 install brew  
 install ansible  
-install git  
 
 ## for debian
 install ansible  
 
 # Working by hand!!!!
-Register the key to github  
+[Register the key to github](https://help.github.com/articles/generating-ssh-keys/)  
 
 # run
 `./run_ansible.sh`  
