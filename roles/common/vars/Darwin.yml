@@ -8,9 +8,11 @@ homebrew_taps:
 homebrew_packages:
   - { name: openssl }
   - { name: openssl, state: linked, install_options: force }
+  - { name: tree }
   - { name: p7zip }
   - { name: python } # 2.x
   - { name: python3 }
+  - { name: go }
   - { name: ansible }
   - { name: git }
   - { name: tig }
@@ -19,6 +21,7 @@ homebrew_packages:
   - { name: rbenv }
   - { name: ruby-build }
   - { name: mysql }
+  - { name: tmux }
   # vim options
   #- { name: cscope }
   #- { name: lua }
