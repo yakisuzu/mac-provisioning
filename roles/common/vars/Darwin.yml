@@ -16,7 +16,7 @@ homebrew_packages:
   - { name: ansible }
   - { name: git }
   - { name: tig }
-  - { name: heroku-toolbelt }
+  #- { name: heroku-toolbelt }
   - { name: nvm }
   - { name: rbenv }
   - { name: ruby-build }
