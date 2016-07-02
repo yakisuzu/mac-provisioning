@@ -3,7 +3,7 @@
 - name: init neobundle
   git: repo=git@github.com:Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
 - name: init vimrc
-  git: repo=git@github.com:yakisuzu/dotfiles.git dest=~/dotfiles
+  git: repo=git@github.com:yakisuzu/dotfiles dest=~/dotfiles
   notify: mklink vimrc
 
 # current repos
