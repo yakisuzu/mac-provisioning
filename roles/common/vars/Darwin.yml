@@ -14,6 +14,7 @@ homebrew_packages:
   - { name: python3 }
   - { name: go }
   - { name: ansible }
+  - { name: maven }
   - { name: git }
   - { name: tig }
   #- { name: heroku-toolbelt }
