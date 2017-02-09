@@ -2,7 +2,7 @@
 pushd `dirname $0` >/dev/null
 
 if [ ! -d `pwd`/provisioning-ansible ]; then
-  curl https://github.com/yakisuzu/provisioning-ansible/archive/master.zip -o master.zip
+  curl -JO https://codeload.github.com/yakisuzu/provisioning-ansible/zip/master
   unzip master.zip
   rm -f master.zip
   mv provisioning-ansible-master provisioning-ansible
