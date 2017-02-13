@@ -15,7 +15,6 @@ homebrew_packages:
   - { name: go }
   - { name: ansible }
   - { name: maven }
-  - { name: git }
   - { name: tig }
   #- { name: heroku-toolbelt }
   - { name: nvm }
@@ -35,21 +34,20 @@ homebrew_packages:
   - { name: fontforge }
 
 homebrew_cask_packages:
-  - { name: iterm2 }
+  #- { name: iterm2 }
   - { name: appcleaner }
   #- { name: firefox }
-  - { name: google-chrome }
+  #- { name: google-chrome }
   - { name: adobe-reader }
-  - { name: java }
   - { name: skype }
-  - { name: intellij-idea }
-  - { name: eclipse-jee }
+  #- { name: intellij-idea }
+  #- { name: eclipse-jee }
   - { name: vagrant }
   - { name: virtualbox }
   - { name: chefdk }
-  - { name: libreoffice }
+  #- { name: libreoffice }
   - { name: alfred }
-  - { name: evernote }
+  #- { name: evernote }
   # Ricty
   - { name: xquartz }
 

@@ -1,10 +1,7 @@
 ---
 # vim
 - name: init neobundle
-  git: repo=git@github.com:Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
-- name: init vimrc
-  git: repo=git@github.com:yakisuzu/dotfiles dest=~/dotfiles
-  notify: mklink vimrc
+  git: repo=https://github.com/Shougo/neobundle.vim dest=~/.vim/bundle/neobundle.vim
 
 # current repos
 - name: check current git repos
@@ -13,7 +10,10 @@
 - shell: |
     cd {{ ansible_env.PWD }}
     git init
-    git remote add origin git@github.com:yakisuzu/provisioning-ansible.git
+    git remote add origin https://github.com/yakisuzu/provisioning-ansible.git
     git fetch origin
     git reset origin/master
+    git config --local user.name yakisuzu
+    git config --local user.email yakisuzu@gmail.com
   when: not resgit.stat.exists
+

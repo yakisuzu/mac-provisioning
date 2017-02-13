@@ -3,6 +3,12 @@
   apt: update_cache=yes
   sudo: yes
 
+# before setting
+- name: git install
+  apt: name=git state=latest
+
+- include: dotfiles.yml
+
 - name: install package for apt
   apt: >
     name={{ item.name }}

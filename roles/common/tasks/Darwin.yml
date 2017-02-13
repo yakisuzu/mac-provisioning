@@ -14,6 +14,16 @@
 - name: update homebrew
   homebrew: update_homebrew=yes
 
+# before setting
+- name: insatall git
+  homebrew: name=git state=installed
+
+- name: insatall java
+  homebrew_cask: name=java state=installed
+
+- include: dotfiles.yml
+
+# brew install
 - name: install package for brew
   homebrew: >
     name={{ item.name }}
@@ -28,8 +38,6 @@
 
 # brew cask
 # http://docs.ansible.com/ansible/homebrew_cask_module.html
-- name: install homebrew cask
-  homebrew: name=brew-cask state=latest
 - name: install package for homebrew-cask
   homebrew_cask: name={{ item.name }} state={{ item.state|default('installed') }}
   with_items: '{{ homebrew_cask_packages }}'

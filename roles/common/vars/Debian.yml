@@ -1,6 +1,5 @@
 ---
 # vars
 apt_packages:
-  - { name: git }
   - { name: nodejs }
   - { name: npm }

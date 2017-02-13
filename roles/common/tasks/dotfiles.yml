@@ -1,0 +1,5 @@
+---
+- name: init dotfiles
+  git: repo=https://github.com/yakisuzu/dotfiles dest=~/dotfiles
+  notify: mklink dotfiles
+
