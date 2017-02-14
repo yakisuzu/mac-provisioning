@@ -1,7 +1,7 @@
 ---
 - name: apt update
   apt: update_cache=yes
-  sudo: yes
+  become: yes
 
 # before setting
 - name: git install

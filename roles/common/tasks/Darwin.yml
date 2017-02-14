@@ -56,3 +56,10 @@
 - name: init nvm dir
   file: path=~/.nvm state=directory
 
+# vim
+- name: download vim dmg
+  get_url:
+    url: https://github.com/splhack/macvim-kaoriya/releases/download/20170203/MacVim-KaoriYa-20170203.dmg
+    dest: "{{ ansible_env.PWD }}/bin/"
+    force: yes
+
