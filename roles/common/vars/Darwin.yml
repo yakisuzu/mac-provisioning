@@ -22,7 +22,6 @@ homebrew_packages:
   - { name: ruby-build }
   - { name: mysql }
   - { name: tmux }
-  - { name: docker }
   # vim options
   #- { name: cscope }
   #- { name: lua }
@@ -43,8 +42,9 @@ homebrew_cask_packages:
   - { name: skype }
   #- { name: intellij-idea }
   #- { name: eclipse-jee }
-  - { name: vagrant }
   - { name: virtualbox }
+  - { name: vagrant }
+  - { name: docker }
   - { name: chefdk }
   #- { name: libreoffice }
   - { name: alfred }
