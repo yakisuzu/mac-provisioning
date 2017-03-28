@@ -12,6 +12,9 @@ initialize xcode
 install brew  
 install ansible  
 
+## for centos
+install ansible  
+
 ## for debian
 install ansible  
 
