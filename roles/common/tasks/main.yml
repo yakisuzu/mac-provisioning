@@ -6,6 +6,9 @@
 - include: Darwin.yml
   when: ansible_os_family == 'Darwin'
 
+- include: RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
 - include: Debian.yml
   when: ansible_os_family == 'Debian'
 
