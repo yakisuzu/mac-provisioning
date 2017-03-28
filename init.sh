@@ -12,7 +12,6 @@ elif [ $check_uname == 'Linux' ]; then
 else
   echo `uname -s` is not supported
 fi
-unset check_uname
 
 popd >/dev/null
-read -p "enter"
+

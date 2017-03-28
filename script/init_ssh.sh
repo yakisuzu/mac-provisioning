@@ -11,4 +11,4 @@ function init_ssh() {
     pop
   fi
 }
-init_ssh && unset init_ssh
+init_ssh

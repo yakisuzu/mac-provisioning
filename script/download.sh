@@ -10,4 +10,4 @@ else
 fi
 
 popd >/dev/null
-read -p "enter"
+
