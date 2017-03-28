@@ -1,7 +1,7 @@
 ---
 - name: yum update
-  yum: update_cache=yes
-  #become: yes
+  yum: name='*' state=latest update_cache=yes
+  become: yes
 
 # before setting
 - name: git install
